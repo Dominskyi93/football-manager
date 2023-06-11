@@ -13,7 +13,7 @@ public interface TeamService {
 
     Team update(Long id, Team team);
 
-    boolean transfer(Player player, Team from, Team to);
+    boolean transfer(Player player, Team to);
 
     List<Team> findAll();
 }

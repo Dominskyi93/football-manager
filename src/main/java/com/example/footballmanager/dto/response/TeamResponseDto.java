@@ -1,6 +1,5 @@
 package com.example.footballmanager.dto.response;
 
-import com.example.footballmanager.model.Player;
 import java.math.BigDecimal;
 import java.util.List;
 import lombok.Data;

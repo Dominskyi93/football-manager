@@ -14,8 +14,8 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 public class PlayerServiceImpl implements PlayerService {
-    private PlayerRepository playerRepository;
     private static final long PRICE_PER_MONTH = 100000L;
+    private PlayerRepository playerRepository;
 
     @Override
     public Player save(Player player) {
@@ -45,6 +45,11 @@ public class PlayerServiceImpl implements PlayerService {
         long experience = ChronoUnit.MONTHS.between(player.getDateOfStartCareer(), LocalDate.now());
         long age = ChronoUnit.YEARS.between(player.getDateOfBirth(), LocalDate.now());
         return BigDecimal.valueOf(experience * PRICE_PER_MONTH / age);
+    }
+
+    @Override
+    public List<Player> findAllByTeamId(Long id) {
+        return playerRepository.findAllByTeamId(id);
     }
 
     @Override

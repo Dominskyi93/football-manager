@@ -15,5 +15,7 @@ public interface PlayerService {
 
     BigDecimal transferPrice(Player player);
 
+    List<Player> findAllByTeamId(Long id);
+
     List<Player> findAll();
 }

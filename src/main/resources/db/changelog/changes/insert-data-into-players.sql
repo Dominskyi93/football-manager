@@ -47,7 +47,7 @@ INSERT INTO `football-manager`.`players` (`date_of_birth`, `date_of_start_career
 VALUES ('1997-12-08', '2019-07-01', '3', 'Alphonso', 'Davies', 'Canadian');
 
 INSERT INTO `football-manager`.`players` (`date_of_birth`, `date_of_start_career`, `team_id`, `first_name`, `last_name`, `nationality`)
-VALUES ('1985-02-05', '2003-08-12', '4', 'Cristiano', 'Ronaldo', 'Portuguese');
+VALUES ('1978-01-28', '1995-01-01', '4', 'Gianluigi', 'Buffon', 'Italian');
 
 INSERT INTO `football-manager`.`players` (`date_of_birth`, `date_of_start_career`, `team_id`, `first_name`, `last_name`, `nationality`)
 VALUES ('1987-12-19', '2006-08-29', '4', 'Giorgio', 'Chiellini', 'Italian');

@@ -9,7 +9,7 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
+import java.util.Set;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -44,21 +44,31 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     @Transactional
-    public boolean transfer(Player player, Team from, Team to) {
-        if (!from.getPlayers().contains(player)) {
-            throw new RuntimeException("The team doesn't have such player!");
+    public boolean transfer(Player player, Team to) {
+        if (player.getTeam() == null) {
+            to.getPlayers().add(player);
+            return true;
+        }
+        Team from = get(player.getTeam().getId());
+        if (from.equals(to)) {
+            return false;
         }
         BigDecimal transferPrice = playerService.transferPrice(player);
-        BigDecimal commission = transferPrice.divide(BigDecimal.valueOf(100)
-                .multiply(from.getCommission()));
+        BigDecimal commission = transferPrice.divide(BigDecimal.valueOf(100))
+                .multiply(from.getCommission());
         BigDecimal priceWithCommission = transferPrice.add(commission);
         if (to.getBalance().compareTo(priceWithCommission) < 0) {
-            throw new RuntimeException("Not enough balance!!!");
+            return false;
         }
         to.setBalance(to.getBalance().subtract(priceWithCommission));
         from.setBalance(from.getBalance().add(priceWithCommission));
-        from.getPlayers().remove(player);
-        to.getPlayers().add(player);
+        Set<Player> playersFrom = from.getPlayers();
+        playersFrom.remove(player);
+        from.setPlayers(playersFrom);
+        Set<Player> playersTo = to.getPlayers();
+        playersTo.add(player);
+        to.setPlayers(playersTo);
+        player.setTeam(to);
         return true;
     }
 

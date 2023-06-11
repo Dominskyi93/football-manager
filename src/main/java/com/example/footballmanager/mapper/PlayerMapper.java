@@ -20,12 +20,16 @@ public class PlayerMapper {
     public PlayerResponseDto mapToDto(Player player) {
         PlayerResponseDto dto = new PlayerResponseDto();
         dto.setId(player.getId());
-        dto.setTeam(player.getTeam());
         dto.setNationality(player.getNationality());
         dto.setFirstName(player.getFirstName());
         dto.setLastName(player.getLastName());
         dto.setDateOfBirth(player.getDateOfBirth());
         dto.setDateOfStartCareer(player.getDateOfStartCareer());
+        if (player.getTeam() == null) {
+            dto.setTeamId(null);
+        } else {
+            dto.setTeamId(player.getTeam().getId());
+        }
         return dto;
     }
 }
