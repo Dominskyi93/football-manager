@@ -1,0 +1,28 @@
+<div style="position: absolute; top: 80px;">
+  <ul class="player-list">
+    <li *ngFor="let player of players" class="player-item">
+      <a [routerLink]="['/players', player.id]" class="player-link">{{ player.firstName + " " + player.lastName}}</a>
+      <button type="button" class="close text-danger" aria-label="Close" (click)="confirmDelete(player.id)"
+              data-toggle="tooltip" data-placement="top" title="Delete player">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div style="position: absolute; top: 80px; right: 16px;">
+  <h1>Fill all fields to add a player</h1>
+  <form (submit)="addPlayerClick()">
+    <input type="text" [(ngModel)]="firstName" name="firstName" placeholder="Input the first name" class="form-control"
+           maxlength="18"><br>
+    <input type="text" [(ngModel)]="lastName" name="lastName" placeholder="Input the last name" class="form-control"
+           maxlength="18"><br>
+    <input type="date" [(ngModel)]="dateOfBirth" name="dateOfBirth" placeholder="Input the date of birth"
+           class="form-control"><br>
+    <input type="date" [(ngModel)]="dateOfStartCareer" name="dateOfStartCareer"
+           placeholder="Input the date of start career" class="form-control"><br>
+    <input type="text" [(ngModel)]="nationality" name="nationality" placeholder="Input the nationality"
+           class="form-control"><br>
+    <button class="btn btn-success" type="submit">Save</button>
+  </form>
+</div>

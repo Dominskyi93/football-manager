@@ -1,0 +1,9 @@
+<h2>Players</h2>
+<div>
+  <ul class="player-list">
+    <li *ngFor="let player of players" class="player-item">
+      <a [routerLink]="['/players', player.id]" class="player-link">{{ player.firstName + " " + player.lastName}}</a>
+    </li>
+  </ul>
+  <button (click)="goBack()">Go Back</button>
+</div>

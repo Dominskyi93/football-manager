@@ -1,0 +1,18 @@
+.team-list {
+  list-style: none;
+  padding: 0;
+
+  .team-item {
+    margin-bottom: 10px;
+
+    .team-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

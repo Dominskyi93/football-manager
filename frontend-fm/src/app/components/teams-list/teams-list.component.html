@@ -1,0 +1,27 @@
+<div style="position: absolute; top: 30px; left: 16px;">
+  <ul class="team-list">
+    <li *ngFor="let team of teams" class="team-item">
+      <a [routerLink]="['/teams', team.id]" class="team-link">{{ team.title }}</a>
+      <button type="button" class="close text-danger" aria-label="Close" (click)="confirmDelete(team.id)"
+              data-toggle="tooltip" data-placement="top" title="Delete team">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div style="position: absolute; top: 80px; right: 16px;">
+  <h1>Fill all fields to add a team</h1>
+  <form (submit)="addTeamClick()">
+    <input type="text" [(ngModel)]="title" name="title" placeholder="Input the title" class="form-control"
+           maxlength="18"><br>
+    <input type="text" [(ngModel)]="city" name="city" placeholder="Input the city" class="form-control"
+           maxlength="18"><br>
+    <input type="text" [(ngModel)]="country" name="country" placeholder="Input the country" class="form-control"
+           maxlength="18"><br>
+    <input type="number" [(ngModel)]="balance" name="balance" placeholder="Input the balance" class="form-control"><br>
+    <input type="number" [(ngModel)]="commission" name="commission" placeholder="Input the commission"
+           class="form-control"><br>
+    <button class="btn btn-success" type="submit">Save</button>
+  </form>
+</div>

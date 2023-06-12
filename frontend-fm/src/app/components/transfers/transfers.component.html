@@ -1,0 +1,20 @@
+<div class="transfer-container">
+  <h2>Transfer Players</h2>
+
+  <label for="sellingPlayer">Selling Player:</label>
+  <select id="sellingPlayer" [(ngModel)]="selectedSellingPlayer">
+    <option *ngFor="let player of players" [value]="player.id">{{ player.firstName + " " + player.lastName }}</option>
+  </select>
+
+  <label for="buyingTeam">Buying Team:</label>
+  <select id="buyingTeam" [(ngModel)]="selectedBuyingTeam">
+    <option *ngFor="let team of teams" [value]="team.id">{{ team.title }}</option>
+  </select>
+
+  <button (click)="transferPlayer()" class="btn btn-primary">Transfer</button>
+  <button (click)="goBack()" class="btn btn-secondary">Go Back</button>
+
+  <div *ngIf="transferMessage" class="transfer-message">
+    {{ transferMessage }}
+  </div>
+</div>

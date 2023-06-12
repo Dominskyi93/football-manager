@@ -1,0 +1,27 @@
+.transfer-container {
+  margin-top: 80px;
+  margin-left: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.transfer-message {
+  margin-top: 20px;
+  font-size: 18px;
+}

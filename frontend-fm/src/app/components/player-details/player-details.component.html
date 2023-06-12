@@ -1,0 +1,56 @@
+<div *ngIf="player" class="player-details">
+  <div class="container">
+    <div class="row">
+      <ng-container *ngIf="!editing" class="col-lg-6">
+        <h2>{{ player.firstName + " " + player.lastName }}</h2>
+        <p><strong>First Name:</strong> {{ player.firstName }}</p>
+        <p><strong>Last Name:</strong> {{ player.lastName }}</p>
+        <p><strong>Date of birth:</strong> {{ player.dateOfBirth }}</p>
+        <p><strong>Date of start career:</strong> {{ player.dateOfStartCareer }}</p>
+        <p><strong>Nationality:</strong> {{ player.nationality }}</p>
+        <p><strong>Team:</strong> {{ player.teamId }}</p>
+        <div class="button-group">
+          <button (click)="editPlayer()" class="btn btn-primary">Edit</button>
+          <button (click)="goBack()" class="btn btn-secondary">Go Back</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+  <ng-container *ngIf="editing">
+    <h2>Edit Player</h2>
+    <form (ngSubmit)="updatePlayer()" #playerForm="ngForm">
+      <div class="form-group">
+        <label>First Name:</label>
+        <input type="text" [(ngModel)]="player.firstName" name="firstName" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Last Name:</label>
+        <input type="text" [(ngModel)]="player.lastName" name="lastName" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Date of Birth:</label>
+        <input type="date" [(ngModel)]="player.dateOfBirth" name="dateOfBirth" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Date of Start Career:</label>
+        <input type="date" [(ngModel)]="player.dateOfStartCareer" name="dateOfStartCareer" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Nationality:</label>
+        <input type="text" [(ngModel)]="player.nationality" name="nationality" class="form-control">
+      </div>
+
+      <div class="button-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" (click)="cancelEdit()" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </ng-container>
+
+</div>

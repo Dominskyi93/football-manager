@@ -1,0 +1,40 @@
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.title {
+  padding-left: 16px;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-text {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:visited {
+  color: #ffffff;
+}

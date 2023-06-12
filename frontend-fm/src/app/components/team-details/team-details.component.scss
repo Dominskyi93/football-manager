@@ -1,0 +1,41 @@
+.team-details {
+  top: 80px;
+  left: 16px;
+  position: absolute;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #888;
+}
+
+.team-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.smaller-link {
+  font-size: 20px;
+}

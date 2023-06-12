@@ -1,0 +1,37 @@
+<div *ngIf="team" class="team-details">
+  <ng-container *ngIf="!editing">
+    <p><strong>Title:</strong> {{ team.title }}</p>
+    <p><strong>City:</strong> {{ team.city }}</p>
+    <p><strong>Country:</strong> {{ team.country }}</p>
+    <p><strong>Balance:</strong> {{ team.balance }} $</p>
+    <p><strong>Commission:</strong> {{ team.commission }} %</p>
+    <h3><a [routerLink]="['/teams', team.id, 'players']" class="team-link smaller-link">VIEW PLAYERS</a></h3>
+    <button (click)="editTeam()" class="btn btn-primary">Edit</button>
+    <button (click)="goBack()" class="btn btn-secondary">Go Back</button>
+  </ng-container>
+
+  <ng-container *ngIf="editing">
+    <h2>Edit Team</h2>
+    <form>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" [(ngModel)]="team.title" name="title" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>City:</label>
+        <input type="text" [(ngModel)]="team.city" name="city" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Country:</label>
+        <input type="text" [(ngModel)]="team.country" name="country" class="form-control">
+      </div>
+
+      <div class="button-group">
+        <button type="submit" (click)="updateTeam()" class="btn btn-primary">Save</button>
+        <button type="button" (click)="cancelEdit()" class="btn btn-secondary">Cancel</button>
+      </div>
+    </form>
+  </ng-container>
+</div>
