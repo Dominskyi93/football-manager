@@ -11,11 +11,11 @@ import {RouterModule} from "@angular/router";
 import {PlayersListComponent} from './components/players-list/players-list.component';
 import {PlayerDetailsComponent} from './components/player-details/player-details.component';
 import {TeamsPlayersComponent} from './components/teams-players/teams-players.component';
-import {FormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HomePageComponent} from './components/home-page/home-page.component';
 import {TransfersComponent} from './components/transfers/transfers.component';
 import {TransferService} from "./transfer.service";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
